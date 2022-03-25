@@ -13,6 +13,8 @@ null_ls.setup({
 	sources = {
 		formatting.prettierd,
 		formatting.stylua,
+		diagnostics.eslint_d,
+		formatting.eslint_d,
 	},
 	on_attach = function(client)
 		if client.resolved_capabilities.document_formatting then

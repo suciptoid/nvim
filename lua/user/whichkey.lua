@@ -183,6 +183,7 @@ local mappings = {
 	},
 	["/"] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
 	["\\"] = { "<cmd>ToggleTerm<cr>", "Toggle Terminal" },
+	-- ["-"] = { '<cmd>lua vim.api.nvim_feedkeys(copilot_keys, "i", false)<cr>', "Toggle Fold" },
 }
 
 local vopts = {
