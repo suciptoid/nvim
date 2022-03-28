@@ -62,7 +62,7 @@ return packer.startup(function(use)
 	-- Colorschemes
 	-- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
 	use("lunarvim/darkplus.nvim")
-	use("dracula/vim")
+	use("lunarvim/onedarker.nvim")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -104,6 +104,9 @@ return packer.startup(function(use)
 			vim.g.copilot_tab_fallback = ""
 		end,
 	})
+
+	-- Wakatime
+	use("wakatime/vim-wakatime")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
