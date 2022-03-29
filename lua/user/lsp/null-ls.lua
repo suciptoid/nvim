@@ -11,10 +11,15 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.prettierd,
+		-- Lua
 		formatting.stylua,
+		-- Javascript / Typescript
+		formatting.prettierd,
 		diagnostics.eslint_d,
 		formatting.eslint_d,
+		-- PHP
+		formatting.phpcsfixer,
+		diagnostics.phpcs,
 	},
 	on_attach = function(client)
 		if client.resolved_capabilities.document_formatting then
