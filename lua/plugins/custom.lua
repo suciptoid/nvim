@@ -9,6 +9,14 @@ return {
       colorscheme = "everforest",
     },
   },
+  {
+    "echasnovski/mini.indentscope",
+    opts = {
+      draw = {
+        animation = require("mini.indentscope").gen_animation.none(),
+      },
+    },
+  },
   -- Window Picker
   {
     "s1n7ax/nvim-window-picker",
