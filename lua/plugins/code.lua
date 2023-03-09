@@ -91,9 +91,9 @@ return {
           nls.builtins.diagnostics.eslint_d,
           -- Lua stuff
           nls.builtins.formatting.stylua,
-          -- PHP stuff
-          nls.builtins.diagnostics.phpcs,
-          nls.builtins.formatting.phpcsfixer,
+          -- PHP stuff (no longer need this, since intelephense configured properly with shiftwidth=4)
+          -- nls.builtins.diagnostics.phpcs,
+          -- nls.builtins.formatting.phpcsfixer,
         },
       }
     end,
