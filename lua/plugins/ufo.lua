@@ -1,15 +1,14 @@
+
+-- stylua: ignore
+-- if true then return {} end
+
 return {
   {
     "kevinhwang91/nvim-ufo",
     event = "BufReadPost",
     dependencies = {
       { "kevinhwang91/promise-async" },
-      { "neovim/nvim-lspconfig" },
     },
-    keys = function()
-      vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-      vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-    end,
     config = function()
       -- Fold options
       vim.o.foldcolumn = "0" -- '0' is not bad
@@ -17,19 +16,12 @@ return {
       vim.o.foldlevelstart = 99
       vim.o.foldenable = true
 
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities.textDocument.foldingRange = {
-        dynamicRegistration = false,
-        lineFoldingOnly = true,
-      }
-      local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
-      for _, ls in ipairs(language_servers) do
-        require("lspconfig")[ls].setup({
-          capabilities = capabilities,
-          -- you can add other fields for setting up lsp server in this table
-        })
-      end
-      require("ufo").setup()
+      require('ufo').setup({
+          provider_selector = function()
+              return {'treesitter', 'indent'}
+          end
+      })
+
     end,
   },
 }

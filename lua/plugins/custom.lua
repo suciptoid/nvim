@@ -1,17 +1,4 @@
 return {
-  -- colorscheme
-  -- {
-  --   "sainnhe/everforest",
-  -- },
-  -- {
-  --   "LunarVim/github.nvim",
-  -- },
-  -- {
-  --   "LazyVim/LazyVim",
-  --   opts = {
-  --     colorscheme = "github",
-  --   },
-  -- },
   {
     "echasnovski/mini.indentscope",
     opts = {

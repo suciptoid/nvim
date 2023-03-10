@@ -4,9 +4,6 @@ return {
     "Exafunction/codeium.vim",
     event = "InsertEnter",
     keys = function()
-      -- vim.keymap.set("i", "<Tab>", function()
-      --   return vim.fn["codeium#Accept"]()
-      -- end, { expr = true })
       vim.keymap.set("i", "<c-i>", function()
         return vim.fn["codeium#Accept"]()
       end, { expr = true, desc = "Accept codeium completion" })
