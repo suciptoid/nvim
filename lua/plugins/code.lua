@@ -4,12 +4,12 @@ return {
     "Exafunction/codeium.vim",
     event = "InsertEnter",
     keys = function()
-      vim.keymap.set("i", "<Tab>", function()
+      -- vim.keymap.set("i", "<Tab>", function()
+      --   return vim.fn["codeium#Accept"]()
+      -- end, { expr = true })
+      vim.keymap.set("i", "<c-i>", function()
         return vim.fn["codeium#Accept"]()
-      end, { expr = true })
-      vim.keymap.set("i", "<c-g>", function()
-        return vim.fn["codeium#Accept"]()
-      end, { expr = true })
+      end, { expr = true, desc = "Accept codeium completion" })
       vim.keymap.set("i", "<c-;>", function()
         return vim.fn["codeium#CycleCompletions"](1)
       end, { expr = true })
@@ -73,7 +73,7 @@ return {
         virtual_text = false,
       },
       -- increase timeout
-      format = { timeout_ms = 9000 },
+      format = { timeout_ms = 10000 },
     },
   },
   -- Additional Language server formatting

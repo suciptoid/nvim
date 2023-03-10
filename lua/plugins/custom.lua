@@ -1,14 +1,17 @@
 return {
   -- colorscheme
-  {
-    "sainnhe/everforest",
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "everforest",
-    },
-  },
+  -- {
+  --   "sainnhe/everforest",
+  -- },
+  -- {
+  --   "LunarVim/github.nvim",
+  -- },
+  -- {
+  --   "LazyVim/LazyVim",
+  --   opts = {
+  --     colorscheme = "github",
+  --   },
+  -- },
   {
     "echasnovski/mini.indentscope",
     opts = {
@@ -93,7 +96,7 @@ return {
         options = {
           theme = "auto",
           globalstatus = true,
-          disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
+          disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha", "TelescopePrompt" } },
           component_separators = { left = "", right = "" },
           section_separators = { left = "", right = "" },
         },
@@ -102,7 +105,7 @@ return {
           lualine_b = { "branch" },
           lualine_c = {
             { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-            { "filename", path = 1, symbols = { modified = "  ", readonly = "  ", unnamed = "  " } },
+            { "filename", path = 1, symbols = { modified = "", readonly = "", unnamed = "" } },
             {
               "diagnostics",
               symbols = {
