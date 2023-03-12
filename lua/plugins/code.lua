@@ -1,7 +1,4 @@
 return {
-  -- Builtin lsp config
-  { import = "lazyvim.plugins.extras.lang.typescript" },
-  { import = "lazyvim.plugins.extras.lang.json" },
   -- Codeium - copilot alternative
   {
     "Exafunction/codeium.vim",
@@ -31,8 +28,6 @@ return {
         "shfmt",
         "emmet-ls",
         "intelephense",
-        "prettierd",
-        "eslint_d",
         "php-cs-fixer",
         "vue-language-server",
         "tailwindcss-language-server",
@@ -151,10 +146,10 @@ return {
 
         sources = {
           -- JS Stuff
-          nls.builtins.formatting.prettierd,
-          nls.builtins.formatting.eslint_d,
-          nls.builtins.code_actions.eslint_d,
-          nls.builtins.diagnostics.eslint_d,
+          -- nls.builtins.formatting.prettierd,
+          -- nls.builtins.formatting.eslint_d,
+          -- nls.builtins.code_actions.eslint_d,
+          -- nls.builtins.diagnostics.eslint_d,
           -- Lua stuff
           nls.builtins.formatting.stylua,
           -- PHP stuff (no longer need this, since intelephense configured properly with shiftwidth=4)

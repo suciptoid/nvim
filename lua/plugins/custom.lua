@@ -1,32 +1,28 @@
 return {
-  {
-    "echasnovski/mini.indentscope",
-    opts = {
-      draw = {
-        animation = require("mini.indentscope").gen_animation.none(),
-      },
-    },
-  },
+  -- {
+  --   "echasnovski/mini.indentscope",
+  --   opts = {
+  --     draw = {
+  --       animation = require("mini.indentscope").gen_animation.none(),
+  --     },
+  --   },
+  -- },
   -- Window Picker
   {
-    "s1n7ax/nvim-window-picker",
-    event = "VeryLazy",
-    config = function()
-      require("window-picker").setup()
-    end,
-  },
-  -- Override telescope shortcut
-  {
-    "nvim-telescope/telescope.nvim",
-    keys = {
-      -- Reclaim keymap from telescope
-      { "<leader>/", false },
-      { "<leader>fa", "<cmd>Telescope live_grep<cr>", desc = "Find in Files (Grep)" },
+    "nvim-neo-tree/neo-tree.nvim",
+    dependencies = {
+      {
+        "s1n7ax/nvim-window-picker",
+        config = function()
+          require("window-picker").setup()
+        end,
+      },
     },
   },
   -- Wakatime - time tracking
   {
     "wakatime/vim-wakatime",
+    event = "BufRead",
   },
   -- Use tab as autocomplete selector
   {
@@ -39,6 +35,11 @@ return {
     "hrsh7th/nvim-cmp",
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
+      local has_words_before = function()
+        unpack = unpack or table.unpack
+        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+      end
       local luasnip = require("luasnip")
       local cmp = require("cmp")
 
@@ -46,10 +47,10 @@ return {
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
-          -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-          -- they way you will only jump inside the snippet region
           elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
+          elseif has_words_before() then
+            cmp.complete()
           else
             fallback()
           end
@@ -132,10 +133,10 @@ return {
             },
           },
           lualine_y = {
-            { "progress", separator = " ", padding = { left = 1, right = 1 } },
+            -- { "location", padding = { left = 1, right = 1 } },
           },
           lualine_z = {
-            { "location", padding = { left = 1, right = 1 } },
+            { "progress", separator = " ", padding = { left = 1, right = 1 } },
           },
         },
         extensions = { "neo-tree" },
