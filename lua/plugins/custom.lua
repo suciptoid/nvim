@@ -7,6 +7,12 @@ return {
   --     },
   --   },
   -- },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin",
+    },
+  },
   -- Window Picker
   {
     "nvim-neo-tree/neo-tree.nvim",

@@ -1,65 +1,8 @@
+if true then
+  return {}
+end
+
 return {
-  -- Codeium - copilot alternative
-  {
-    "Exafunction/codeium.vim",
-    event = "InsertEnter",
-    keys = function()
-      vim.keymap.set("i", "<C-g>", function()
-        return vim.fn["codeium#Accept"]()
-      end, { expr = true, desc = "Accept codeium completion" })
-      vim.keymap.set("i", "<C-'>", function()
-        return vim.fn["codeium#CycleCompletions"](1)
-      end, { expr = true })
-      vim.keymap.set("i", "<C-,>", function()
-        return vim.fn["codeium#CycleCompletions"](-1)
-      end, { expr = true })
-      vim.keymap.set("i", "<C-x>", function()
-        return vim.fn["codeium#Clear"]()
-      end, { expr = true })
-    end,
-  },
-  -- Language Server
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "stylua",
-        "shellcheck",
-        "shfmt",
-        "emmet-ls",
-        "eslint_d",
-        "intelephense",
-        "php-cs-fixer",
-        "vue-language-server",
-        "tailwindcss-language-server",
-        "prisma-language-server",
-      },
-    },
-  },
-  -- Syntax Highlighting
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "bash",
-        "help",
-        "html",
-        "javascript",
-        "json",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "regex",
-        "tsx",
-        "typescript",
-        "vim",
-        "yaml",
-        "vue",
-        "php",
-        "css",
-      },
-    },
-  },
   {
     "neovim/nvim-lspconfig",
     opts = {
@@ -139,25 +82,4 @@ return {
     end,
   },
   -- Additional Language server formatting
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    opts = function()
-      local nls = require("null-ls")
-      return {
-
-        sources = {
-          -- JS Stuff
-          -- nls.builtins.formatting.prettierd,
-          nls.builtins.formatting.eslint_d,
-          nls.builtins.code_actions.eslint_d,
-          nls.builtins.diagnostics.eslint_d,
-          -- Lua stuff
-          nls.builtins.formatting.stylua,
-          -- PHP stuff (no longer need this, since intelephense configured properly with shiftwidth=4)
-          -- nls.builtins.diagnostics.phpcs,
-          -- nls.builtins.formatting.phpcsfixer,
-        },
-      }
-    end,
-  },
 }
