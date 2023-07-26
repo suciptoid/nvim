@@ -1,4 +1,14 @@
 return {
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      diagnostics = {
+        virtual_text = false,
+      },
+      -- increase timeout
+      format = { timeout_ms = 10000 },
+    },
+  },
   -- Language Server
   {
     "williamboman/mason.nvim",
@@ -11,7 +21,6 @@ return {
         "eslint_d",
         "prettierd",
         "intelephense",
-        "php-cs-fixer",
         "vue-language-server",
         "tailwindcss-language-server",
         "prisma-language-server",
