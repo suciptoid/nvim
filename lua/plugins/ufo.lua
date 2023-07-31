@@ -1,9 +1,11 @@
--- if true then return {} end
+-- if true then
+--   return {}
+-- end
 
 return {
   {
     "kevinhwang91/nvim-ufo",
-    event = "BufRead",
+    event = "BufReadPost",
     dependencies = {
       { "kevinhwang91/promise-async" },
       {

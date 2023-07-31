@@ -16,3 +16,12 @@ vim.api.nvim_create_autocmd("CursorHold", {
     vim.diagnostic.open_float(nil, { focus = false })
   end,
 })
+
+-- Detach ufo on neotree, not work yet
+-- https://github.com/kevinhwang91/nvim-ufo/issues/33#issuecomment-1172831823
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "neo-tree",
+  callback = function()
+    vim.opt_local.foldenable = false
+  end,
+})
