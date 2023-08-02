@@ -1,10 +1,10 @@
 return {
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin",
-    },
-  },
+  -- {
+  --   "LazyVim/LazyVim",
+  --   opts = {
+  --     colorscheme = "tokyonight",
+  --   },
+  -- },
   {
     "s1n7ax/nvim-window-picker",
     event = "VeryLazy",
