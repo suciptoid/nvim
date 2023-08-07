@@ -14,12 +14,12 @@ return {
           }),
           nls.builtins.formatting.eslint_d.with({
             condition = function(utils)
-              return utils.root_has_file({ ".eslintrc", ".eslintrc.json", ".eslintrc.js" })
+              return utils.root_has_file({ ".eslintrc", ".eslintrc.json", ".eslintrc.js", ".eslintrc.cjs" })
             end,
           }),
           nls.builtins.code_actions.eslint_d.with({
             condition = function(utils)
-              return utils.root_has_file({ ".eslintrc", ".eslintrc.json", ".eslintrc.js" })
+              return utils.root_has_file({ ".eslintrc", ".eslintrc.json", ".eslintrc.js", ".eslintrc.cjs" })
             end,
           }),
           -- nls.builtins.diagnostics.eslint_d,
